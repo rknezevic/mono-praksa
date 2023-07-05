@@ -1,0 +1,235 @@
+create extension if not exists "uuid-ossp";
+
+create table Patient(
+Id uuid primary key,
+FirstName varchar(30),
+LastName varchar(30),
+DateOfBirth date,
+Address varchar(30),
+MobileNumber varchar(20)
+);
+INSERT INTO public.patient
+(id, firstname, lastname, dateofbirth, address, mobilenumber)
+VALUES(uuid_generate_v1(), 'Robert', 'Knezevic', '2000-12-31', 'Babina Greda', '097298301');
+
+INSERT INTO public.patient
+(id, firstname, lastname, dateofbirth, address, mobilenumber)
+VALUES(uuid_generate_v1(), 'Ivo', 'Zadro', '1973-05-24', 'Ilica 21', '099281838');
+
+-- Insert Patient 1
+INSERT INTO Patient (Id, FirstName, LastName, DateOfBirth, Address, MobileNumber)
+VALUES (uuid_generate_v1(), 'Marin', 'Kovasilko', '2002-05-15', '123 Main St', '555-1234');
+
+-- Insert Patient 2
+INSERT INTO Patient (Id, FirstName, LastName, DateOfBirth, Address, MobileNumber)
+VALUES (uuid_generate_v1(), 'Marko', 'Smitich', '1985-10-20', '456 Elm St', '555-5678');
+
+-- Insert Patient 3
+INSERT INTO Patient (Id, FirstName, LastName, DateOfBirth, Address, MobileNumber)
+VALUES (uuid_generate_v1(), 'Dragan', 'Jukić', '1978-12-31', '789 Oak St', '555-9012');
+
+-- Insert Patient 4
+INSERT INTO Patient (Id, FirstName, LastName, DateOfBirth, Address, MobileNumber)
+VALUES (uuid_generate_v1(), 'Emilija', 'Wilsonovic', '1995-07-08', '987 Pine St', '555-3456');
+
+
+create table Doctor(
+Id uuid primary key,
+FirstName varchar(30),
+LastName varchar(30),
+Specialization varchar(40)
+);
+
+INSERT INTO public.doctor
+(id, firstname, lastname, specialization)
+VALUES(uuid_generate_v1(), 'Goran', 'Jusup', 'Neurosurgeon');
+
+UPDATE public.doctor
+SET specialization = 'Psychiatrist'
+WHERE specialization = 'Neurosurgeon';
+
+
+INSERT INTO Doctor (Id, FirstName, LastName, Specialization)
+VALUES (uuid_generate_v1(), 'John', 'Doe', 'Cardiologist');
+
+
+INSERT INTO Doctor (Id, FirstName, LastName, Specialization)
+VALUES (uuid_generate_v1(), 'Jane', 'Smith', 'Pediatrician');
+
+
+INSERT INTO Doctor (Id, FirstName, LastName, Specialization)
+VALUES (uuid_generate_v1(), 'Michael', 'Johnson', 'Orthopedic Surgeon');
+
+
+INSERT INTO Doctor (Id, FirstName, LastName, Specialization)
+VALUES (uuid_generate_v1(), 'Emily', 'Wilson', 'Dermatologist');
+
+select * from Doctor;
+
+create table Nurse(
+Id uuid primary key,
+FirstName varchar(30),
+LastName varchar(30)
+);
+INSERT INTO public.nurse
+(id, firstname, lastname)
+VALUES(uuid_generate_v1(), 'Veronika', 'Pecolaj');
+
+INSERT INTO public.nurse
+(id, firstname, lastname)
+VALUES(uuid_generate_v1(), 'Petra', 'Kiš');
+
+-- Insert Nurse 1
+INSERT INTO Nurse (Id, FirstName, LastName)
+VALUES (uuid_generate_v1(), 'Sarah', 'Johnson');
+
+-- Insert Nurse 2
+INSERT INTO Nurse (Id, FirstName, LastName)
+VALUES (uuid_generate_v1(), 'Jessica', 'Davis');
+
+-- Insert Nurse 3
+INSERT INTO Nurse (Id, FirstName, LastName)
+VALUES (uuid_generate_v1(), 'Emily', 'Wilson');
+
+-- Insert Nurse 4
+INSERT INTO Nurse (Id, FirstName, LastName)
+VALUES (uuid_generate_v1(), 'Sophia', 'Lee');
+
+select * from Nurse;
+
+create table Appointment(
+Id uuid primary key,
+DateTime Date,
+TimeOfApp time,
+DoctorId uuid not null ,
+PatientId uuid not null ,
+NurseId uuid not null ,
+constraint FK_Appointment_Doctor_Id FOREIGN KEY (DoctorId) REFERENCES Doctor (Id),
+constraint FK_Appointment_Pacient_Id foreign key (PatientId) references Patient(Id),
+constraint FK_Appointment_Nurse_Id foreign key (NurseId) references Nurse(Id)
+);
+
+INSERT INTO public.appointment
+(id, datetime, timeofapp, doctorid, patientid, nurseid)
+VALUES(uuid_generate_v1(), '2023-07-15', '9:00:00', '93bef014-1b1b-11ee-aadc-a3cb62578dd0', '3e57ce3e-1b20-11ee-aade-7722f7361acb', 'ede21bde-1b1b-11ee-aadd-8fa60440caa7');
+
+-- Insert Appointment 1
+INSERT INTO Appointment (Id, DateTime, TimeOfApp, DoctorId, PatientId, NurseId)
+VALUES (uuid_generate_v1(), '2023-07-15', '10:30:00', '55f6bf4a-1b2b-11ee-aae8-efa9c9e1cf5a', 'ccd0df3c-1b2c-11ee-aaf2-4b093553afcc', '133c2432-1b27-11ee-aae3-e368ecc27a14');
+
+-- Insert Appointment 2
+INSERT INTO Appointment (Id, DateTime, TimeOfApp, DoctorId, PatientId, NurseId)
+VALUES (uuid_generate_v1(), '2023-07-16', '10:30:00', '59aebc28-1b2b-11ee-aaea-b7df9601b281', 'c841aa1e-1b2c-11ee-aaf0-2305c76902cd', 'f48405be-1b2b-11ee-aaec-0f7e50e88068');
+
+-- Insert Appointment 3
+INSERT INTO Appointment (Id, DateTime, TimeOfApp, DoctorId, PatientId, NurseId)
+VALUES (uuid_generate_v1(), '2023-07-17', '14:00:00', '54b51460-1b2b-11ee-aae7-874e9b2beda4', 'c6dc02d2-1b2c-11ee-aaef-375773eaa383', 'ede21bde-1b1b-11ee-aadd-8fa60440caa7');
+
+select * from appointment ;
+
+
+create table Department(
+Id uuid primary key,
+Name varchar(30)
+);
+
+insert into public.department (id, name)
+VALUES(uuid_generate_v1(), 'Psychatrist')
+
+create table DoctorDepartment(
+Id uuid primary key,
+DoctorId uuid not null ,
+DepartmentId uuid not null ,
+IsHeadDoctor bool,
+constraint FK_DoctorDepartment_Doctor_Id FOREIGN KEY (DoctorId) REFERENCES Doctor (Id),
+constraint FK_Department_Department_Id FOREIGN KEY (DepartmentId) REFERENCES Department (Id)
+);
+
+INSERT INTO public.doctordepartment
+(id, doctorid, departmentid, isheaddoctor)
+VALUES(uuid_generate_v1(), '93bef014-1b1b-11ee-aadc-a3cb62578dd0', 'a539ed4e-1b25-11ee-aae0-9f9c636d4d59', true);
+
+
+create table NurseDepartment(
+Id uuid primary key,
+NurseId uuid not null,
+DepartmentId uuid not null,
+constraint FK_NurseDepartment_Nurse_Id foreign key (NurseId) REFERENCES Nurse(Id),
+constraint FK_NurseDepartment_Department_Id foreign key (DepartmentId) REFERENCES Department(Id)
+);
+
+INSERT INTO public.nursedepartment
+(id, nurseid, departmentid)
+VALUES(uuid_generate_v1(),'ede21bde-1b1b-11ee-aadd-8fa60440caa7','a539ed4e-1b25-11ee-aae0-9f9c636d4d59');
+
+
+create table Examination(
+Id uuid primary key,
+Diagnosis varchar(80),
+AppointmentId uuid not null,
+constraint FK_Examination_Appointment_Id foreign key (AppointmentId) REFERENCES Appointment(Id)
+);
+INSERT INTO Examination
+(Id, Diagnosis, AppointmentId)
+VALUES
+(uuid_generate_v1(), 'Schyzofrenia', '681fc122-1b25-11ee-aadf-77e53227fa3b');
+
+create table Prescription(
+Id uuid primary key,
+Medicine varchar(50),
+ExaminationId uuid not null,
+constraint FK_Prescription_Examination_Id foreign key(ExaminationId) references Examination(Id)
+);
+
+INSERT INTO Prescription
+(Id, Medicine, ExaminationId)
+VALUES
+(uuid_generate_v1(), 'Aspirin', '2dc5dfae-1b28-11ee-aae5-8b47796ba70f');
+
+UPDATE public.prescription
+SET medicine='Risperidone'
+WHERE id='3878f42c-1b28-11ee-aae6-bb3f2585fafd';
+
+
+
+SELECT
+    A.DateTime,
+    A.TimeOfApp,
+    D.FirstName AS DoctorFirstName,
+    D.LastName AS DoctorLastName,
+    P.FirstName AS PatientFirstName,
+    P.LastName AS PatientLastName,
+    N.FirstName AS NurseFirstName,
+    N.LastName AS NurseLastName
+FROM
+    Appointment A
+    INNER JOIN Doctor D ON A.DoctorId = D.Id
+    INNER JOIN Patient P ON A.PatientId = P.Id
+    INNER JOIN Nurse N ON A.NurseId = N.Id;
+
+   
+   
+   SELECT
+    P.Medicine,
+    E.Diagnosis,
+    A.DateTime,
+    A.TimeOfApp
+FROM
+    Prescription P
+    INNER JOIN Examination E ON P.ExaminationId = E.Id
+    INNER JOIN Appointment A ON E.AppointmentId = A.Id;
+   
+SELECT
+    Prescription.Id,
+    Prescription.Medicine,
+    Examination.Diagnosis,
+    Patient.FirstName AS PatientFirstName,
+    Patient.LastName AS PatientLastName,
+    Doctor.FirstName as DoctorFirstName,
+    Doctor.LastName as DoctorLastName
+FROM
+    Prescription
+INNER JOIN Examination ON Prescription.ExaminationId = Examination.Id
+LEFT JOIN Appointment ON Examination.AppointmentId = Appointment.Id
+LEFT JOIN Patient ON Appointment.PatientId = Patient.Id
+left join Doctor on Appointment.Doctorid = Doctor.Id ;
