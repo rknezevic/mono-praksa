@@ -11,10 +11,10 @@ namespace PatientProject.IPersonRepository.Common
 {
     public interface IPersonRepositoryCommon
     {
-        Patient GetPatientById(Guid id);
-        List<Patient> GetPatients();
+        Task<Patient> GetPatientByIdAsync(Guid id);
+        Task<List<Patient>> GetPatientsAsync();
         Patient ReadPatient(NpgsqlDataReader reader);
-        int Post([FromBody] Patient patient);
-        int Put(Guid id, [FromBody] Patient patient);
+        Task<int> PostAsync([FromBody] Patient patient);
+        Task<int> PutAsync(Guid id, [FromBody] Patient patient);
     }
 }

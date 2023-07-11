@@ -20,28 +20,28 @@ namespace Service
 
         public PersonService() { }
 
-        public List<Patient> GetAll()
+        public async Task<List<Patient>> GetAllAsync()
         {
-            return repository.GetPatients();
+            return await repository.GetPatientsAsync();
         }
 
-        public Patient GetPatientById(Guid id) 
+        public async Task<Patient> GetPatientByIdAsync(Guid id) 
         {
-            return repository.GetPatientById(id);
+            return await repository.GetPatientByIdAsync(id);
         }
 
-        public int Post(Patient patient)
+        public async Task<int> PostAsync(Patient patient)
         {
-            return repository.Post(patient);
+            return await repository.PostAsync(patient);
         }
-        public int Delete(Guid id)
+        public async Task<int> DeleteAsync(Guid id)
         {
-            return repository.Delete(id);
+            return await repository.DeleteAsync(id);
         }
 
-        public int Put(Guid id,Patient patient)
+        public async Task<int> PutAsync(Guid id,Patient patient)
         {
-            return repository.Put(id, patient);
+            return await repository.PutAsync(id, patient);
         }
     }
 }

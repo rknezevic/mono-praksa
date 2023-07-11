@@ -9,15 +9,13 @@ namespace Service.Common
 {
     public interface IPersonService
     {
-        List<Patient> GetAll();
+        Task<List<Patient>> GetAllAsync();
 
+        Task <Patient> GetPatientByIdAsync(Guid id);
 
-        Patient GetPatientById(Guid id);
+        Task<int> PostAsync(Patient patient);
 
-
-        int Post(Patient patient);
-
-        int Delete(Guid id);
+        Task<int> DeleteAsync(Guid id);
         
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientProject", "VehicleProject\PatientProject.csproj", "{C1AFEFDB-520D-492F-83DE-1EA8ADD060CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientProject.WebApi", "VehicleProject\PatientProject.WebApi.csproj", "{C1AFEFDB-520D-492F-83DE-1EA8ADD060CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientProject.PersonService", "Service\PatientProject.PersonService.csproj", "{2AFC39AD-3B4F-4AE8-A21B-ACEF5405F89A}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -30,7 +30,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientProject.PersonReposi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientProject.Model", "ClassLibrary1\PatientProject.Model.csproj", "{E4E6EB06-9040-4D97-B911-09A1BA4E762E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{71439D4D-0708-4EE1-8157-ADC4C37A572E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientProject.DAL", "DAL\PatientProject.DAL.csproj", "{71439D4D-0708-4EE1-8157-ADC4C37A572E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientProject.Model.Common", "PatientProject.Model.Common\PatientProject.Model.Common.csproj", "{0F35E3CB-C0E0-43F7-99EA-B9779EA37FAB}"
 EndProject
