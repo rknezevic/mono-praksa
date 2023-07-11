@@ -12,7 +12,7 @@ using PatientProject.IPersonRepository.Common;
 
 namespace PersonRepository
 {
-    public class PatientRepository : IPersonRepositoryCommon
+    public class PatientRepository : IPatientRepositoryCommon
     {
         private static string connection = "Server=localhost; Port=5432; User Id=postgres; Password=knezevic10; Database=postgres";
 

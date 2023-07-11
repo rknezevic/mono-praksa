@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -10,7 +11,7 @@ namespace VehicleProject
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
+            var builder = new ContainerBuilder();
             // Web API routes
             config.MapHttpAttributeRoutes();
 

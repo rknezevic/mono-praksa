@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace PatientProject.IPersonRepository.Common
 {
-    public interface IPersonRepositoryCommon
+    public interface IPatientRepositoryCommon
     {
         Task<Patient> GetPatientByIdAsync(Guid id);
         Task<List<Patient>> GetPatientsAsync();

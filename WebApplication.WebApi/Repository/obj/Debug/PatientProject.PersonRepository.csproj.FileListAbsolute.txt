@@ -47,3 +47,8 @@ C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\obj\Deb
 C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\obj\Debug\PatientProject.PersonRepository.csproj.CopyComplete
 C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\obj\Debug\Repository.dll
 C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\obj\Debug\Repository.pdb
+C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\bin\Debug\Autofac.dll
+C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\bin\Debug\Autofac.Integration.WebApi.dll
+C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\bin\Debug\ClassLibrary1.dll.config
+C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\bin\Debug\Autofac.xml
+C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\bin\Debug\Autofac.Integration.WebApi.xml

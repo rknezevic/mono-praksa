@@ -176,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\ContainerConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -366,6 +367,18 @@
     <ProjectReference Include="..\ClassLibrary1\PatientProject.Model.csproj">
       <Project>{E4E6EB06-9040-4D97-B911-09A1BA4E762E}</Project>
       <Name>PatientProject.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatientProject.Repository.Common\PatientProject.PersonRepository.Common.csproj">
+      <Project>{D41753B4-9F15-4BEC-88DB-9F196333CDA8}</Project>
+      <Name>PatientProject.PersonRepository.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\PatientProject.PersonRepository.csproj">
+      <Project>{01E83CA3-498B-49CA-BCCC-6F5D090B7AF7}</Project>
+      <Name>PatientProject.PersonRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service.Common\PatientProject.PersonService.Common.csproj">
+      <Project>{15E5F9DD-B364-407B-942B-4B57DBD0BD9C}</Project>
+      <Name>PatientProject.PersonService.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Service\PatientProject.PersonService.csproj">
       <Project>{2AFC39AD-3B4F-4AE8-A21B-ACEF5405F89A}</Project>
