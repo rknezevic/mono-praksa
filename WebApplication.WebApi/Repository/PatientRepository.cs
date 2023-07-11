@@ -9,6 +9,7 @@ using PatientProject.Model;
 using Npgsql;
 using System.Web.Http;
 using PatientProject.IPersonRepository.Common;
+using PatientProject.Model.Common;
 
 namespace PersonRepository
 {
@@ -16,15 +17,47 @@ namespace PersonRepository
     {
         private static string connection = "Server=localhost; Port=5432; User Id=postgres; Password=knezevic10; Database=postgres";
 
-        public async Task<List<Patient>> GetPatientsAsync()
+        public async Task<List<Patient>> GetPatientsAsync(Sorting sorting, Paging paging, Filter filter)
         {
             List<Patient> patients = new List<Patient>();
+
 
             using (NpgsqlConnection conn = new NpgsqlConnection(connection))
             {
                 await conn.OpenAsync();
+                StringBuilder stringBuilder = new StringBuilder("SELECT * FROM Patient");
+                StringBuilder count = new StringBuilder("SELECT COUNT (*) FROM Patient");
 
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM Patient", conn);
+                stringBuilder.Append(" WHERE 1 = 1");
+
+                if(filter.MinDateTime != null )
+                {
+                    stringBuilder.Append($" AND DateOfBirth > '{ filter.MinDateTime }' ");
+                }
+
+                if(filter.MaxDateTime != null )
+                {
+                    stringBuilder.Append($" AND DateOfBirth < '{ filter.MaxDateTime }'");
+                }
+
+                stringBuilder.Append(" ORDER BY ");
+                stringBuilder.Append(sorting.OrderBy);
+                stringBuilder.Append(" ");
+                stringBuilder.Append(sorting.SortOrder);
+
+                if (paging.PageSize > 0 && paging.PageCount > 0)
+                {
+                    int skip = (paging.PageCount - 1) * paging.PageSize;
+                    stringBuilder.Append(" OFFSET ")
+                              .Append(skip)
+                              .Append(" LIMIT ")
+                              .Append(paging.PageSize);
+                }
+
+                
+                string sql = stringBuilder.ToString();
+
+                NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
                 NpgsqlDataReader dr = await cmd.ExecuteReaderAsync();
 
                 if (dr.HasRows)
@@ -36,6 +69,8 @@ namespace PersonRepository
                     }
                 }
 
+                
+                
                 dr.Close();
                 conn.Close();
             }

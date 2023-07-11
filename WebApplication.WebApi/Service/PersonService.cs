@@ -7,6 +7,7 @@ using PatientProject.Model;
 using PersonRepository;
 using Service.Common;
 using Autofac;
+using PatientProject.Model.Common;
 
 namespace Service
 {
@@ -21,9 +22,9 @@ namespace Service
 
         public PersonService() { }
 
-        public async Task<List<Patient>> GetAllAsync()
+        public async Task<List<Patient>> GetAllAsync(Sorting sorting, Paging paging, Filter filter)
         {
-            return await repository.GetPatientsAsync();
+            return await repository.GetPatientsAsync(sorting, paging, filter);
         }
 
         public async Task<Patient> GetPatientByIdAsync(Guid id) 

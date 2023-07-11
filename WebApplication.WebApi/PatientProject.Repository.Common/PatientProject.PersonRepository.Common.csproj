@@ -112,6 +112,10 @@
       <Project>{E4E6EB06-9040-4D97-B911-09A1BA4E762E}</Project>
       <Name>PatientProject.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PatientProject.Model.Common\PatientProject.Model.Common.csproj">
+      <Project>{0F35E3CB-C0E0-43F7-99EA-B9779EA37FAB}</Project>
+      <Name>PatientProject.Model.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

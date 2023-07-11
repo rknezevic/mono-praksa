@@ -113,6 +113,10 @@
       <Project>{E4E6EB06-9040-4D97-B911-09A1BA4E762E}</Project>
       <Name>PatientProject.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PatientProject.Model.Common\PatientProject.Model.Common.csproj">
+      <Project>{0F35E3CB-C0E0-43F7-99EA-B9779EA37FAB}</Project>
+      <Name>PatientProject.Model.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Repository\PatientProject.PersonRepository.csproj">
       <Project>{01E83CA3-498B-49CA-BCCC-6F5D090B7AF7}</Project>
       <Name>PatientProject.PersonRepository</Name>

@@ -11,11 +11,11 @@ namespace PatientProject.PatientView
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         public string Address { get; set; }
         public string MobileNumber { get; set; }
 
-        public PatientView(Guid id, string firstName, string lastName, DateTime dateOfBirth, string address, string mobileNumber) 
+        public PatientView(Guid id, string firstName, string lastName, DateTime? dateOfBirth, string address, string mobileNumber) 
         {
             FirstName = firstName;
             LastName = lastName;

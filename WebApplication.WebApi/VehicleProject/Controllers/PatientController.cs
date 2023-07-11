@@ -10,6 +10,8 @@ using Service;
 using PatientProject.Model;
 using PatientProject.PatientView;
 using System.Threading.Tasks;
+using PatientProject.Model.Common;
+using Microsoft.Ajax.Utilities;
 
 namespace VehicleProject.Controllers
 {
@@ -18,11 +20,17 @@ namespace VehicleProject.Controllers
         private PersonService personService = new PersonService();
 
         // GET api/<controller>
-        public async Task<HttpResponseMessage> Get()
+        public async Task<HttpResponseMessage> Get(string orderBy = "FirstName", string sortOrder = "asc", int pageSize = 3, int pageCount = 3, DateTime? minDateTime = null, DateTime? maxDateTime = null, string address = "")
         {
+            Sorting sorting = new Sorting(orderBy, sortOrder);
+
+            Paging paging = new Paging(pageSize, pageCount);
+
+            Filter filter = new Filter(minDateTime, maxDateTime, address);
+   
             List<PatientView> patients = new List<PatientView>();
 
-            List<Patient> mappedPatients = await personService.GetAllAsync();
+            List<Patient> mappedPatients = await personService.GetAllAsync(sorting, paging, filter);
 
             foreach (Patient mappedPatient in mappedPatients)
             {

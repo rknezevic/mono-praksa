@@ -52,3 +52,6 @@ C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\bin\Deb
 C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\bin\Debug\ClassLibrary1.dll.config
 C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\bin\Debug\Autofac.xml
 C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\bin\Debug\Autofac.Integration.WebApi.xml
+C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\bin\Debug\PatientProject.Model.Common.dll
+C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\bin\Debug\PatientProject.Model.Common.pdb
+C:\Users\rober\source\repos\mono-praksa\WebApplication.WebApi\Repository\bin\Debug\PatientProject.Model.Common.dll.config

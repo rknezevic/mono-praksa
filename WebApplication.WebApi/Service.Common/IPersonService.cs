@@ -1,4 +1,5 @@
 ﻿using PatientProject.Model;
+using PatientProject.Model.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Service.Common
 {
     public interface IPersonService
     {
-        Task<List<Patient>> GetAllAsync();
+        Task<List<Patient>> GetAllAsync(Sorting sorting, Paging paging, Filter filter);
 
         Task <Patient> GetPatientByIdAsync(Guid id);
 

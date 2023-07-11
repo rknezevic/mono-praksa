@@ -78,9 +78,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filter.cs" />
+    <Compile Include="FilterAddress.cs" />
+    <Compile Include="FilterDoB.cs" />
     <Compile Include="IPatientModel.cs" />
     <Compile Include="IPatientViewModel.cs" />
+    <Compile Include="Paging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sorting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
