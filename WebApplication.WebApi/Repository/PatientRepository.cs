@@ -40,6 +40,12 @@ namespace PersonRepository
                     stringBuilder.Append($" AND DateOfBirth < '{ filter.MaxDateTime }'");
                 }
 
+                if(String.IsNullOrEmpty(filter.Address) == false )
+                {
+                    stringBuilder.Append($" AND Address LIKE '{filter.Address}%'");
+                }
+                
+
                 stringBuilder.Append(" ORDER BY ");
                 stringBuilder.Append(sorting.OrderBy);
                 stringBuilder.Append(" ");
@@ -80,6 +86,7 @@ namespace PersonRepository
 
         public async Task<Patient> GetPatientByIdAsync(Guid id)
         {
+
             using (NpgsqlConnection conn = new NpgsqlConnection(connection))
             {
                 await conn.OpenAsync();
