@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Student</title>
+</head>
+<body>
+    <nav class = "navbar">
+        <div class = "logo">
+            <img src = "logo.jpg" alt="Logo">
+        </div>
+        <ul>
+            <li><a href = "C:\Users\rober\source\repos\mono-praksa\Practice.html">Home</a></li>
+            <li><a href = "C:\Users\rober\source\repos\mono-praksa\Internships.html">Internships</a></li>
+            <li><a href = "#">Companies</a></li>
+        </ul>
+    </nav>
+
+    <div class="flex-container">
+        
+        <div class="container">
+            <h2>Add new internship</h2>
+            <form onsubmit="addInternship(submit)">
+                <label for = "id"> Id: </label><br>
+                <input type = "int" id="id" name="id" value=""><br><br>
+                <label for="fname">Name of internship:</label><br>
+                <input type="text" id="fname" name="fname" value=""><br><br>
+                <label for="desc">Description:</label><br>
+                <input type="text" id="desc" name="desc" value=""><br><br>
+                <label for="studyArea">Study Area:</label><br>
+                    <select id="studyArea" name="studyArea">
+                        <option value = "nothing">...</option>
+                        <option value="computerScience">Computer Science</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="business">Business</option>
+                        <option value="medicine">Medicine</option>
+                        <option value="machineEngineering">Machine Engineering</option>
+                    </select><br><br>
+                <input type="submit" value="Submit"><br>
+              </form>
+        </div>
+
+        <div class="container">
+            <h2>Companies</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Company name</th>
+                        <th>Address</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Mono d.o.o.</td>
+                        <td>IT Park 1</td>
+                        <td><button class="edit-button">Edit</button>
+                            <button class="delete-button">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Ericsson</td>
+                        <td>Stjepana Radića 12</td>
+                        <td><button class="edit-button">Edit</button>
+                            <button class="delete-button">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuid.min.js"></script>
+
+</body>
+</html>

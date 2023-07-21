@@ -1,0 +1,210 @@
+/* Osnovni reset stilova za listu */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Stiliziranje glavnog kontejnera */
+.navbar-container {
+    display: flex;
+    justify-content: center; /* Centriranje .navbar na sredinu */
+}
+
+/* Stiliziranje navigacijske trake */
+.navbar {
+    background-color: #78A8A8;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between; /* Poravnavanje stavki s lijeve i desne strane */
+    align-items: center; /* Centralno poravnavanje stavki po visini */
+    font-size: 30px;
+}
+
+/* Stiliziranje logo kontejnera */
+.logo {
+    max-width: 100px; /* Prilagodite širinu prema vašem logotipu */
+}
+
+/* Stiliziranje logotipa */
+.logo img {
+    width: 100%;
+    height: auto;
+    padding: 5px; /* Dodajte prostor oko logotipa */
+}
+
+/* Stiliziranje stavki navigacijske trake */
+.navbar ul {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+   
+}
+
+.navbar li {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+/* Stiliziranje linkova u navigacijskoj traci */
+.navbar li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 5px 10px;
+    margin-right: 50px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+/* Stiliziranje linkova kada se pređe mišem preko njih */
+.navbar li a:hover {
+    background-color: #478f79;
+}
+
+/* Stiliziranje naslova "Internships" */
+header {
+    text-align: center;
+    margin-top: 10px;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #F5F5F5; /* Dodajte boju pozadine prema vašim preferencijama */
+}
+
+.internship {
+    padding: 10px;
+    margin-block-start: 10px; /* Dodajemo razmak ispod pojedinih internshipa */
+    margin-bottom: 10px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.internship h2 {
+    margin-top: 0;
+}
+
+.internship p {
+    margin-bottom: 10px;
+}
+
+.internship button {
+    background-color: #78A8A8;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.container {
+    flex: 1;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-bottom: 20px;
+    border: 1px solid #ccc;
+    margin: 10px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Stiliziranje zaglavlja tablice */
+thead th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Stiliziranje ćelija tablice */
+td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+/* Stiliziranje neparnih redova tablice */
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+.edit-button,
+.delete-button {
+    background-color: #78A8A8;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+/* Stiliziranje kontejnera za uređivanje */
+.edit_container {
+    max-width: 400px;
+    margin: 0 auto; /* Centrira kontejner horizontalno */
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex; /* Koristimo fleksibilno poravnanje */
+    flex-direction: column; /* Poravnava elemente u kolonu */
+    align-items: center; /* Centrira elemente po dužini */
+    justify-content: center; /* Centrira elemente po visini */
+}
+
+/* Stiliziranje naslova kontejnera za uređivanje */
+.editcontainer h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Stiliziranje forme za uređivanje */
+.editcontainer form {
+    width: 100%; /* Povećavamo širinu forme kako bi se centrirala */
+    max-width: 300px; /* Postavljamo maksimalnu širinu forme */
+    display: grid;
+    grid-template-columns: 150px 1fr; /* Razdjeljuje elemente forme u dva stupca */
+    grid-gap: 10px;
+}
+
+/* Stiliziranje oznaka forme */
+.editcontainer label {
+    display: block;
+    font-weight: bold;
+}
+
+/* Stiliziranje polja unosa (input) u formi */
+.editcontainer input[type="text"],
+.editcontainer input[type="datetime"],
+.editcontainer select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+/* Stiliziranje padajućeg izbornika (select) u formi */
+.editcontainer select {
+    height: 38px;
+}
+
+/* Stiliziranje gumba za slanje (submit) u formi */
+.editcontainer input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.container{
+    padding-right: 40px;
+}
